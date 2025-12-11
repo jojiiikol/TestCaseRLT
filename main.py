@@ -17,6 +17,7 @@ db = Database()
 async def result(message: types.Message):
     try:
         query = await llm.get_answer(message.text)
+        print(query)
         result = await db.get_data(query)
         await message.answer(result)
     except Exception as e:
